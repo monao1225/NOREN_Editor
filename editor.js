@@ -1,3 +1,9 @@
 var editor = ace.edit("input_area");
 
-editor.setTheme("ace/theme/monokai");
+const main = require("electron").remote.require("./main");
+const bgColor = main.bgColor;
+console.log(bgColor);
+
+if(bgColor){
+    editor.setTheme("ace/theme/monokai");
+}

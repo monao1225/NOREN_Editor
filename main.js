@@ -5,6 +5,8 @@ const BrowserWindow = electron.BrowserWindow;
 const fs = require("fs")
 
 let mainWindow = null;
+let bgColor = false;
+exports.bgColor = bgColor;
 
 //メニューバーテンプレート作成
 const template = [
@@ -49,24 +51,35 @@ const template = [
       { role: 'zoomout' },
       { type: 'separator' },
       { role: 'togglefullscreen' },
-      {
-        label: 'Background',
-        submenu: [
-          {
-            label: '明るいやつ',
-            type: 'checkbox',
-            type: 'checked',
-            click () {exports}
-          }
-        ]
-      }
     ]
   },
   {
     role: 'window',
     submenu: [
       { role: 'minimize' },
-      { role: 'close' }
+      { role: 'close' },
+      {
+        label: 'Background',
+        submenu: [
+          {
+            label: '明るいやつ',
+            type: 'radio',
+            checked: true,
+            click () {
+              exports.bgColor = false;
+              mainWindow.loadURL('file://' + __dirname + '/index.html');
+            }
+          },
+          {
+            label: '暗いやつ',
+            type: 'radio',
+            click () {
+              exports.bgColor = true;
+              mainWindow.loadURL('file://' + __dirname + '/index.html');
+            }
+          }
+        ]
+      }
     ]
   },
   {
@@ -90,7 +103,10 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
 
   // ブラウザ(Chromium)の起動, 初期画面のロード
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow = new BrowserWindow({
+    width: 800, 
+    height: 600
+  });
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   mainWindow.on('closed', function() {
