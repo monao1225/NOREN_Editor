@@ -11,14 +11,14 @@ exports.bgColor = bgColor;
 //メニューバーテンプレート作成
 const template = [
   {
-    label: 'File',
+    label: 'ファイル',
     submenu: [
       { 
-        label: 'Open'
+        label: '開く'
 
       },
       { 
-        label: 'Save'
+        label: '保存'
 
       },
       { type: 'separator' },
@@ -26,40 +26,40 @@ const template = [
     ]
   },
   {
-    label: 'Edit',
+    label: '編集',
     submenu: [
-      { role: 'undo' },
-      { role: 'redo' },
+      { label: '元に戻す', role: 'undo' },
+      { label: 'やり直し', role: 'redo' },
       { type: 'separator' },
-      { role: 'cut' },
-      { role: 'copy' },
-      { role: 'paste' },
-      { role: 'pasteandmatchstyle' },
-      { role: 'delete' },
-      { role: 'selectall' }
+      { label: '切り取り', role: 'cut' },
+      { label: 'コピー', role: 'copy' },
+      { label: '貼り付け', role: 'paste' },
+      { label: '書式なし貼り付け', role: 'pasteandmatchstyle' },
+      { label: '削除', role: 'delete' },
+      { label: '全て選択', role: 'selectall' }
     ]
   },
   {
-    label: 'View',
+    label: '表示',
     submenu: [
-      { role: 'reload' },
-      { role: 'forcereload' },
-      { role: 'toggledevtools' },
+      { label: '更新', role: 'reload' },
+      { label: '開発者向けツール', role: 'toggledevtools' },
       { type: 'separator' },
-      { role: 'resetzoom' },
-      { role: 'zoomin' },
-      { role: 'zoomout' },
+      { label: 'リセット', role: 'resetzoom' },
+      { label: '拡大', role: 'zoomin' },
+      { label: '縮小', role: 'zoomout' },
       { type: 'separator' },
-      { role: 'togglefullscreen' },
+      { label: 'フルスクリーン', role: 'togglefullscreen' },
     ]
   },
   {
+    label: 'ウィンドウ',
     role: 'window',
     submenu: [
-      { role: 'minimize' },
-      { role: 'close' },
+      { label: '最小化', role: 'minimize' },
+      { label: '閉じる', role: 'close' },
       {
-        label: 'Background',
+        label: '背景',
         submenu: [
           {
             label: '明るいやつ',
@@ -83,6 +83,7 @@ const template = [
     ]
   },
   {
+    label: 'ヘルプ',
     role: 'help',
     submenu: [
       {
