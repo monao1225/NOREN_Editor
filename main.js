@@ -1,11 +1,10 @@
 const electron = require('electron');
 const app = electron.app;
-const Menu = electron.Menu
+const Menu = electron.Menu;
 const BrowserWindow = electron.BrowserWindow;
-const fs = require("fs")
+const fs = require("fs");
 
 let mainWindow = null;
-let bgColor = false;
 
 
 // 全てのウィンドウが閉じたら終了
@@ -23,12 +22,11 @@ app.on('ready', function() {
     height: 600
   });
 
-  const menuTemplate = require("./menuTemplate")
+  const menuTemplate = require("./menuTemplate");
   
   //メニューバー生成
   const menu = Menu.buildFromTemplate(menuTemplate.template);
   Menu.setApplicationMenu(menu);
-  exports.bgColor = menuTemplate.bgColor;
 
   //初期画面のロード
   mainWindow.loadURL('file://' + __dirname + '/index.html');

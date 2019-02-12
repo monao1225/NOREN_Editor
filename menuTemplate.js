@@ -3,6 +3,7 @@ const mainWindow = BrowserWindow.getFocusedWindow();
 
 //メニューバーテンプレート作成
 module.exports= {
+  bgColor : false,
   template : [
     {
       label: 'ファイル',
@@ -60,7 +61,7 @@ module.exports= {
               type: 'radio',
               checked: true,
               click () {
-                exports.bgColor = false;
+                require("./menuTemplate").bgColor = false;
                 mainWindow.loadURL('file://' + __dirname + '/index.html');
               }
             },
@@ -68,7 +69,7 @@ module.exports= {
               label: '暗いやつ',
               type: 'radio',
               click () {
-                exports.bgColor = true;
+                require("./menuTemplate").bgColor = true;
                 mainWindow.loadURL('file://' + __dirname + '/index.html');
               }
             }
