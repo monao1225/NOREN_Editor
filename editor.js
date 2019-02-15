@@ -13,4 +13,4 @@ editor.setOptions({
 if(bgColor){
     editor.setTheme("ace/theme/monokai");
 }
-editor.getSession().setMode("ace/mode/python");
+editor.getSession().setMode("ace/mode/norencs");
